@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "b8ebc29a-cd0e-40a9-860d-d63616489238",
+		"name": "github.com/Ravig786/challenge2016",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15563037"
+	},
+	"item": [
+		{
+			"name": "Region Data",
+			"item": [
+				{
+					"name": "Get Countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/countries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get States",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/countries/:country_code/states",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"countries",
+								":country_code",
+								"states"
+							],
+							"variable": [
+								{
+									"key": "country_code",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/countries/:country_code/states/:state_code/cities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"countries",
+								":country_code",
+								"states",
+								":state_code",
+								"cities"
+							],
+							"variable": [
+								{
+									"key": "country_code",
+									"value": null
+								},
+								{
+									"key": "state_code",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Distributor",
+			"item": [
+				{
+					"name": "1.Add Distributor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"ravi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/distributor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"distributor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.Add Permission to Distributor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"region\":\"IN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/distributor/:name/:action",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"distributor",
+								":name",
+								":action"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "ravi"
+								},
+								{
+									"key": "action",
+									"value": "include"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.Add Permission to Distributor Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/distributor/:name/:action",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"distributor",
+								":name",
+								":action"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "ravi"
+								},
+								{
+									"key": "action",
+									"value": "EXCLUDE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.Check Distribution Location",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/distributor/:name/can-distribute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"distributor",
+								":name",
+								"can-distribute"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Get Distributors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/distributors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"distributors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.Add Sub Distributor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"ravi-child\",\n    \"parent\":\"ravi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/distributor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"distributor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
